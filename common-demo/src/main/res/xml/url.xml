@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<url>
+
+    <Node
+        BaseJSON="true"
+        Key="getSuccessMusic"
+        MockClass="com.richdataco.app.mock.model.GetMuse2Model"
+        NetType="post"
+        ShouldCache="true"
+        Url="http://v5.pc.duomi.com/search-ajaxsearch-searchall" />
+
+    <!---->
+    <Node
+        BaseJSON="false"
+        Key="getMusic"
+        NetType="post"
+        ShouldCache="true"
+        Url="http://v5.pc.duomi.com/search-ajaxsearch-searchall" />
+
+    <Node
+        BaseJSON="true"
+        Key="failMussic"
+        NetType="post"
+        MockClass="com.richdataco.app.mock.model.FailModel"
+        ShouldCache="true"
+        Url="http://v5.pc.duomi.com/search-ajaxsearch-searchall" />
+
+</url>

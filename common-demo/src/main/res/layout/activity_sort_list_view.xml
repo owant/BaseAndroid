@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:div="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.richdataco.common.widget.dslv.DragSortListView
+        android:id="@+id/test_sort_dslv_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:dividerHeight="5dp"
+        android:fastScrollEnabled="true"
+        div:drag_enabled="true"
+        div:collapsed_height="2dp"
+        div:drag_scroll_start="0.33"
+        div:max_drag_scroll_speed="0.5"
+        div:float_alpha="0.6"
+        div:slide_shuffle_speed="0.3"
+        div:track_drag_sort="false"
+        div:use_default_controller="true"
+        div:drag_handle_id="@id/drag_handle"
+        div:sort_enabled="true"
+        div:remove_enabled="true"
+        div:drag_start_mode="onDown"
+        div:remove_mode="flingRemove"/>
+
+</LinearLayout>

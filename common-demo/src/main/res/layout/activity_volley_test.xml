@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/volley_tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="200dp" />
+
+
+    <Button
+        android:id="@+id/volley_btn_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendRequest"
+        android:text="Volley发送请求" />
+
+    <Button
+        android:id="@+id/net_btn_remote_request_in_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendRemoteSuccessRequest"
+        android:text="Remote 模拟成功发送请求" />
+
+    <Button
+        android:id="@+id/net_btn_remote_request_in_fail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendRemoteFailRequest"
+        android:text="Remote 模拟失败发送请求" />
+
+    <Button
+        android:id="@+id/net_btn_remote_request_in_real"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendRealRequest"
+        android:text="Remote 发送真实请求" />
+
+</LinearLayout>

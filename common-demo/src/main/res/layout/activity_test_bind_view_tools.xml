@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/test_bind_ly_container"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/test_bind_tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bind_view_tool_command"/>
+
+    <Button
+        android:id="@+id/test_bind_btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="login"/>
+
+    <Button
+        android:id="@+id/test_bind_btn_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="login"/>
+
+    <ListView
+        android:id="@+id/test_bind_lv_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

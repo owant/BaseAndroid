@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">App</string>
+    <string name="bind_view_tool_command">
+        //默认是Activity下的findViewById\n
+java -jar BindViewTool.jar -p $layout_file_path\n
+//Fragment下的\n
+java -jar BindViewTool.jar -f true -p $layout_file_path\n
+//添加忽略标识命令,对于m开头的进行忽略\n
+java -jar BindViewTool.jar -f true -i m -p $layout_file_path\n
+    </string>
+
+    <string-array name="SortData">
+        <item>Basic usage playground</item>
+        <item>Heteroheight</item>
+        <item>Warp</item>
+        <item>Background handle</item>
+        <item>Sections</item>
+        <item>CursorAdapter</item>
+        <item>Multiple-choice mode</item>
+        <item>Single-choice mode</item>
+    </string-array>
+</resources>

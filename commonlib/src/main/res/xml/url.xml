@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+<url>
+
+    <Node
+        BaseJSON="true"
+        Key="getMusic2"
+        MockClass=""
+        NetType="post"
+        ShouldCache="true"
+        Url="http://v5.pc.duomi.com/search-ajaxsearch-searchall"/>
+
+        说明介绍
+        BaseJSON:是否采用规定格式下的JSON格式
+        Key:用于查找API的接口
+        MockClass：是否采用虚拟的返回数据
+        NetType：是请求类型post/get
+        ShouldCache:是否缓存
+        Url:请求的路径
+</url>
+
+-->
+
+<url>
+
+</url>

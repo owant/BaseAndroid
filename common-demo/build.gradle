@@ -1,0 +1,130 @@
+import java.text.SimpleDateFormat
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion base_compile_sdk_version
+    buildToolsVersion base_build_tools_version
+
+    defaultConfig {
+        applicationId "com.richdataco.base"
+        minSdkVersion base_min_sdk_version
+        targetSdkVersion base_target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+
+    //签名配置
+    signingConfigs {
+        config {
+            storeFile file('./keys/BaseKey.jks')
+            keyAlias 'BaseKey'
+            keyPassword 'rdc@2016'
+            storePassword 'rdc@2016'
+        }
+    }
+
+    buildTypes {
+
+        debug {
+            //配置是打印log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            //关联签名
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            //配置不大log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            //关联签名
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //打包类型
+    productFlavors {
+
+        //debug版本,注意applicationId最好不要和release版本一致，方便测试，
+        //而且可以防止测试人员用debug版本去发布，而且可以同时按住debug和release版本
+        app_debug {
+            applicationId "com.richdataco.demo_bug"
+            manifestPlaceholders = [
+                    app_name: "common_bug"
+            ]
+        }
+
+        //release版本
+        app_release {
+            applicationId "com.richdataco.demo"
+            manifestPlaceholders = [
+                    app_name: "common"
+            ]
+        }
+
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    //输出文件
+    applicationVariants.all { main ->
+        main.outputs.each { output ->
+            def file = output.outputFile
+            output.outputFile = new File(file.parent,
+                    "comm_demo_" + main.buildType.name +
+                            "_v_" + main.versionName + "_"
+                            + buildTime() + ".apk");
+        }
+    }
+}
+
+def buildTime() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    df.setTimeZone(TimeZone.getDefault())
+    return df.format(new Date())
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:$base_support_version"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    //动画兼容包
+    compile 'com.nineoldandroids:library:2.4.0'
+    //图片裁剪
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
+
+
+    //公共库
+    //    compile(name: 'common_lib_release_v_1.0',ext: 'aar')
+    compile project(':commonlib')
+
+    //leak检测
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+}

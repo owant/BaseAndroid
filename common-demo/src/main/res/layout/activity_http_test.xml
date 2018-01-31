@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/http_tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="200dp"
+        />
+
+    <Button
+        android:id="@+id/http_btn_simple_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="simple request"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/http_btn_volley_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="volley request"
+        android:textAllCaps="false"/>
+
+</LinearLayout>
