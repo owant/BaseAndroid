@@ -1,14 +1,14 @@
-##RDC Android基础构建
+## RDC Android基础构建
 
 author： liuwang.zhong<br>
 version：0.1.0
 
 [TOC]
 
-###**前言**
+### **前言**
 对于Android的构建流程来说，更多的是关注我们的一些所谓“规定”。这些规定不一定是需要去追随，可以由我们员工们自行选择。其中的规定也会随着工程、项目而改变。这只是一些意见，我们希望可以达到一种效应：Android的代码有着自己公司员工的共同审美，接受我们这种命名、分类、流程，进而做好构建出一个个健壮应用的准备。
 
-###**开发工具**
+### **开发工具**
 一般工具有：AndroidStudio，JDK，Gradle，Git等。<br>
 对于Android Application的开发工具采用AndroidStudio。当前采用的版本号为：2.3.1。下载时尽量，下载不带SDK版本的，自带SDK版本的问题比较多。JDK的JAVA版本下载：1.8.0_112版本。Gradle版本为：3.3。工具下载地址表
 
@@ -55,9 +55,9 @@ export PATH=$GRADLE/bin:$PATH
 
 ```
 
-###**应用构建**
+### **应用构建**
 
-####**默认配置**
+#### **默认配置**
 
 * **gitignore配置**<br>
 
@@ -302,9 +302,9 @@ View->View:暴露所有的绘制接口给Presenter进行依赖
 ```
 在MVP模式中，Presenter和Model是可以拖离SDK的，这样更加的方便单元测试。View层的测试可以通过SDK进行测试（纯UI测试）。
 
-###**网络接口设计**
+### **网络接口设计**
 
-####Response基本格式
+#### Response基本格式
 
 对于http的请求的返回格式采用这个基本格式，default_json
 ```json
@@ -328,7 +328,7 @@ View->View:暴露所有的绘制接口给Presenter进行依赖
 ```
 isError是调用MobileAPI成功与否，errorType是错误类型（如果成功为0），errorMessage是错误消息（如果成功则为空），result是请求返回的数据结果（如果失败则为空）。这样的统一方便我们队请求数据的进行统一处理。
 
-####虚拟远程服务
+#### 虚拟远程服务
 
 对于Application的开发来说。一般都是要应用后台的接口工作，如果有完善的接口文档的话，在文档提供详细的回调格式，并且后台写一些假的数据给我前端开发，这样我们的Application还是可以前行无阻的，但是会陷入一个怪圈，Application的人在等接口，或相符沟通接口的变化，之后，还要等后台人员修改锁定的假数据。这里我参考了以往的经历和网上的资源采用了一个MockService来解决这个问题，只需要Application这端进行模拟数据。要实现的这个设计的前提是：
 
@@ -397,7 +397,7 @@ RemoteService.getInstance().invoke("getMusic", targetContext, "getMusic2", param
 ```
 主要是在MockClass进行管理需要模拟的数据，如果MockClass为空即走真实的请求。
 
-###**代码规范与规定**
+### **代码规范与规定**
 
 代码规范的原则是简单易懂，不罗嗦，也可以参考google的java编程规范风格。
 
@@ -485,7 +485,7 @@ RemoteService.getInstance().invoke("getMusic", targetContext, "getMusic2", param
     </style>
 ```
 
-###**工具类**
+### **工具类**
 
 **AndroidLog**
 
@@ -529,6 +529,6 @@ public void bindViews(){
 
 都可以通过java的名字推测得知。
 
-###**其他**
+### **其他**
 更多的信息可以通过查看commonlib库的情况。
 
