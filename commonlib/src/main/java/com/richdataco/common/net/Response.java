@@ -10,7 +10,7 @@ package com.richdataco.common.net;
  * "result":""
  * }
  */
-public class Response {
+public class Response implements Cloneable{
     private boolean isError;
     private String errorMessage;
     private int errorType;
@@ -43,4 +43,9 @@ public class Response {
         return result;
     }
 
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
